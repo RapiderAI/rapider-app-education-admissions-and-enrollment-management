@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapider Education Admissions &amp; Enrollment Management</title>
+  <script src="https://kit.fontawesome.com/5b23df26dc.js" crossorigin="anonymous" defer></script>
+  <script src="/assets/js/rapider-components.js" defer></script>
+  <link rel="stylesheet" href="/assets/themes/rapider-tailwind-theme.css">
+  <link rel="stylesheet" href="/assets/themes/crm-expenses-design.css">
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }
+    iframe#appFrame { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="appFrame" src="pages/admissions-pulse/admissions-pulse.html"></iframe>
+  <script>
+    const routes = {
+  "admissions-pulse": "pages/admissions-pulse/admissions-pulse.html",
+  "inquiries-prospects": "pages/inquiries-prospects/inquiries-prospects.html",
+  "visits-interviews": "pages/visits-interviews/visits-interviews.html",
+  "applications-board": "pages/applications-board/applications-board.html",
+  "holistic-reader": "pages/holistic-reader/holistic-reader.html",
+  "decisions-aid": "pages/decisions-aid/decisions-aid.html",
+  "contracts-deposits": "pages/contracts-deposits/contracts-deposits.html",
+  "melt-onboarding": "pages/melt-onboarding/melt-onboarding.html",
+  "yield-analytics": "pages/yield-analytics/yield-analytics.html",
+  "application-reader-detail": "pages/application-reader-detail/application-reader-detail.html",
+  "contract-decision-detail": "pages/contract-decision-detail/contract-decision-detail.html",
+  "inquiry-visit-drawer": "pages/inquiry-visit-drawer/inquiry-visit-drawer.html",
+  "decision-contract-drawer": "pages/decision-contract-drawer/decision-contract-drawer.html"
+};
+    function handleHash() {
+      const hash = window.location.hash.replace(/^#\/?/, '').split('?')[0];
+      const route = hash || 'admissions-pulse';
+      const target = routes[route] || routes['admissions-pulse'];
+      const iframe = document.getElementById('appFrame');
+      if (iframe) iframe.src = target;
+    }
+    window.addEventListener('hashchange', handleHash);
+    window.addEventListener('load', handleHash);
+  </script>
+</body>
+</html>
